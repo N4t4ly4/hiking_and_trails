@@ -4,7 +4,7 @@
         <li><a class="active" href="#home">Home</a></li>
     
         <?php if ( isset($_SESSION['email'])  ): ?>
-        <li><a href="C:\xampp\htdocs\hiking-and-trails\add_hike.php">Submit a Hike</a></li>
+        <li><a href="add_hike.php">Submit a Hike</a></li>
         <?php endif ?>
 
         <!-- These will only show if admin (need to add functionality)-->
