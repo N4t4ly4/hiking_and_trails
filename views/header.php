@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="C:\xampp\htdocs\hiking-and-trails\styles.css">
 
 <ul>
-        <li><a class="active" href="#home">Home</a></li>
+        <li><a class="active" href="index.php">Home</a></li>
     
         <?php if ( isset($_SESSION['email'])  ): ?>
         <li><a href="add_hike.php">Submit a Hike</a></li>
@@ -9,8 +9,8 @@
 
         <!-- These will only show if admin (need to add functionality)-->
         <?php if ( isset($_SESSION['admin']) && $_SESSION['admin'] == 'isAdmin'  ): ?>
-        <li><a href="#">Approve Hikes</a></li>
-        <li><a href="#">Dashboard</a></li>
+        <li><a href="approve_hikes.php">Approve Hikes</a></li>
+        <li><a href="admin_dashboard.php">Dashboard</a></li>
         <?php endif ?>
         
         <li style="float:right">

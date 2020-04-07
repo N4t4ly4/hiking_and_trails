@@ -11,6 +11,43 @@ function get_hikes() {
    return $users;
 }
 
+function getAdminHikes() {
+   global $db;
+   $query = "SELECT HikeID, DescriptiveName, DifficultyLevel, CONCAT(l.City, ', ', l.State) AS 'Location', CASE WHEN PavedTrail = 1 THEN 'Yes' ELSE 'No' END AS 'Paved_Trail', CASE WHEN Waterfall = 1 THEN 'Yes' ELSE 'No' END AS 'Waterfall', CASE WHEN ScenicLookout = 1 THEN 'Yes' ELSE 'No' END AS 'ScenicLookout', CASE WHEN Cave = 1 THEN 'Yes' ELSE 'No' END AS 'Cave', CASE WHEN Lake = 1 THEN 'Yes' ELSE 'No' END AS 'Lake', CASE WHEN River = 1 THEN 'Yes' ELSE 'No' END AS 'River', h.Username AS 'User', h.hikeapprovalstatus AS 'Status' FROM hikes h JOIN Location l ON h.locationid = l.locationid JOIN features f ON h.featureid = f.featureid";
+   $statement = $db->prepare($query);
+   $statement->execute();
+   $users = $statement->fetchAll();
+   $statement->closeCursor();
+   return $users;
+}
+
+function changeHikeApprovalStatus($hikeId, $hikeStatus) {
+   
+   $bla = 'normal';
+   if ($hikeStatus == 'pending') {
+      global $db;
+      $query = 'UPDATE Hikes SET HikeApprovalStatus = "approved" WHERE HikeID = :hikeId';
+      $statement = $db->prepare($query);
+      $statement->bindParam(':hikeId', $hikeId);
+      $statement->execute();
+      $user = $statement->fetch(PDO::FETCH_BOTH);
+      $statement->closeCursor();
+      $bla = 'different';
+   }
+   
+   if ($hikeStatus == 'approved') {
+      global $db;
+      $query = 'UPDATE Hikes SET HikeApprovalStatus = "pending" WHERE HikeID = :hikeId';
+      $statement = $db->prepare($query);
+      $statement->bindParam(':hikeId', $hikeId);
+      $statement->execute();
+      $user = $statement->fetch(PDO::FETCH_BOTH);
+      $statement->closeCursor();
+      $bla = 'different';
+   }
+
+   return $bla;
+}
 
 function getNextLocationId() {
    global $db;

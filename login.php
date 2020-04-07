@@ -10,11 +10,12 @@
 <html>
 <head>
  <title>Utah Hiking and Trails</title>
- <link rel="stylesheet" type="text/css" href="">
+ <link rel="stylesheet" type="text/css" href="styles2.css">
 </head>
 
 <body>
 <br/><br/>
+<div class="form-background">
 <form action="users/index.php" method="post">
   Email: <input type="text" name="email" placeholder="email" size="10">
   Password: <input type="password" name="password" placeholder="Password" size="10">
