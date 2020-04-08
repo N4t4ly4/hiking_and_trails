@@ -18,7 +18,7 @@ if ( !(isset($_SESSION['admin']) && $_SESSION['admin'] == 'isAdmin') ) {
 <head>
     <meta charset="UTF-8">
     <title>Hiking and Trails Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles3.css">
 </head>
 <body>
     <?php include 'C:\xampp\htdocs\hiking-and-trails\views\header.php'; ?>
@@ -38,6 +38,8 @@ if ( !(isset($_SESSION['admin']) && $_SESSION['admin'] == 'isAdmin') ) {
         <td>Cave</td>
         <td>Lake</td>
         <td>River</td>
+        <td>User</td>
+        <td>Status</td>
        </tr>
        <?php foreach ($hikes as $hike) :?>
          <tr>

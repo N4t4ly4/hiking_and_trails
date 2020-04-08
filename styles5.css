@@ -1,0 +1,75 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url("background7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+h1 {
+    color: Black;
+    text-align: center;
+  }
+  
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: inherit;
+}
+    
+li {
+    float: left;
+    border-right:1px solid white;
+}
+    
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+    
+li a:hover {
+    background-color: #C0C0C0;
+}
+    
+.active {
+    background-color: #4CAF50;
+}
+  
+p {
+    color: white;
+}
+  
+table, tr, td {
+    border: solid 1px black;
+    border-collapse: collapse;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: gray;
+    opacity: inherit;
+}
+
+.tiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55%;
+    margin-left: 20%;
+}
+
+.allhikestile, .approvedhikestile, .pendinghikestile {
+    border: solid 5px black;
+    padding: 25px;
+    width: 205px;
+    background-color: rgba(255,255,255,0.65);
+}
